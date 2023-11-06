@@ -15,7 +15,7 @@
     "build:electron": "webpack --config webpack/electron.webpack.ts --mode=production",
     "build:react": "webpack --config webpack/react.webpack.ts --mode=production",
     "package": "npm-run-all build package:dist",
-    "package:dist": "electron-builder --dir"
+    "package:dist": "electron-builder --windows --x64"
   },
   "keywords": [],
   "author": "HelloSoftware",
@@ -23,9 +23,14 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.14.16",
     "@mui/material": "^5.9.1",
+    "date-fns": "^2.30.0",
+    "exceljs": "^4.4.0",
+    "node-xlsx": "^0.23.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "xlsx": "^0.19.3"
   },
   "devDependencies": {
     "@types/node": "^16.11.45",
@@ -52,10 +57,15 @@
     "webpack-dev-server": "^4.9.3"
   },
   "build": {
-    "appId": "com.company.app",
-    "productName": "App Name",
-    "mac": {
-      "category": "public.app-category.video"
+    "appId": "com.kolot.app",
+    "productName": "SB-Parser",
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "portable": {
+      "artifactName": "PortableParser.exe"
     },
     "directories": {
       "output": "packages"
